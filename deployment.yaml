@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: summer-trip
+  labels:
+    app: summer-trip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: summer-trip
+  template:
+    metadata:
+      labels:
+        app: summer-trip
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: summer-trip
+        image: gcr.io/decent-creek-369909/summer-trip:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8082

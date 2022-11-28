@@ -1,0 +1,15 @@
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "summer-trip-service"
+  labels:
+    app: "summer-trip"
+spec:
+  ports:
+  - protocol: "TCP"
+    port: 8082
+    targetPort: 8082
+  selector:
+    app: "summer-trip"
+  type: "LoadBalancer"
+  
